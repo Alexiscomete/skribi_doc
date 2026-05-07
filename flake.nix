@@ -51,7 +51,7 @@
         };
         devShells.default = pkgs.mkShell {
           inputsFrom = [ doc ];
-          buildInputs = [ ];
+          buildInputs = [ open ];
         };
       }
     );
