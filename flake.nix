@@ -16,12 +16,23 @@
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
+        typst = (
+          pkgs.typst.withPackages (
+            ps: with ps; [
+              zebraw_0_6_1
+            ]
+          )
+        );
+        path = "${typst}/lib/typst/packages";
         doc = pkgs.stdenv.mkDerivation {
           src = ./.;
           name = "skribi_doc";
-          nativeBuildInputs = with pkgs; [
+          nativeBuildInputs = [
             typst
+            pkgs.which
           ];
+          TYPST_PACKAGE_CACHE_PATH=path;
+          TYPST_PACKAGE_PATH=path;
           buildPhase = ''
             typst compile main.typ
           '';

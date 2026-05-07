@@ -14,3 +14,4 @@ nix run github:Dibi-programming-language/skribi_doc
 This will open the last official version of the document.
 
 A website may be made later.
+Note that this is easy to create a website from a Typst document.
