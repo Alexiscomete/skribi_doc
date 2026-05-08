@@ -20,6 +20,7 @@
           pkgs.typst.withPackages (
             ps: with ps; [
               zebraw_0_6_1
+              vibrant-color_0_2_0
             ]
           )
         );
@@ -29,7 +30,6 @@
           name = "skribi_doc";
           nativeBuildInputs = [
             typst
-            pkgs.which
           ];
           TYPST_PACKAGE_CACHE_PATH=path;
           TYPST_PACKAGE_PATH=path;
