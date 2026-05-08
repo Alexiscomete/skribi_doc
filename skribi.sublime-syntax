@@ -1,0 +1,22 @@
+%YAML 1.2
+---
+# https://www.sublimetext.com/docs/syntax.html
+
+name: skribi
+file_extensions: [skrb]
+scope: source.skrb
+
+contexts:
+  main:
+    - match: \b(skr_app|ij|sula|ci|ums)\b
+      scope: keyword.control.c
+    - match: '"'
+      push: skr
+
+  skr:
+    - meta_scope: string.quoted.double.c
+    - match: \\.
+      scope: constant.character.escape.c
+    - match: '"'
+      pop: true
+

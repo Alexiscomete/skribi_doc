@@ -19,6 +19,8 @@
   title: "An introduction on Skribi",
 )
 
+#set raw(syntaxes: "skribi.sublime-syntax")
+
 = Introduction
 
 This document is created for explaining how to use the Skribi, and having every
@@ -61,3 +63,38 @@ skribi your_file.skrb
 ```
 
 Only `.skrb` and `.skribi` are accepted as valid files.
+
+= Specifications
+
+You can write Skribi code anywhere in a Skribi file: you do not need a main
+function to start coding.
+
+#warning("None of these specifications are implemented yet.")
+
+== Calling a function
+
+=== Native functions
+
+You can use native functions to communicate with the outside of your script.
+
+The syntax of a native function is:
+```skribi
+skr_app name(args)
+```
+
+This will call the function named ```skribi name```.
+We need to specify the ```skribi skr_app``` as it would be considered as a user
+defined function otherwise.
+
+#quote([
+  Why do we need to make a difference between user defined functions and skribi
+  defined functions ?
+
+  #line()
+
+  This is an implementation choice: skribi defined functions are from a limited
+  list, and implemented in a totally different way. This allows to perform
+  limited checks on these functions.
+])
+
+
